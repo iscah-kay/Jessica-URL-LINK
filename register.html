@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Library Management System in SRC</title>
+  <style> 
+    body {
+      font-family: Arial, sans-serif;
+      background-color: pink;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: pink;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: gray;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+    p { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Library Management System in SRC</h1>
+    <h2>Create Account</h2>
+    <input type="text" id="regName" placeholder="Student Number">
+    <input type="text" id="regUsername" placeholder="Fullname">
+    <input type="password" id="regPassword" placeholder=" Student Password">
+    <button onclick="registerUser()">Register</button>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script>
+    function registerUser() {
+      const name = document.getElementById('regName').value;
+      const username = document.getElementById('regUsername').value;
+      const password = document.getElementById('regPassword').value;
+      
+if (name && username && password) {
+        localStorage.setItem('libraryUser', JSON.stringify({ name, username, password }));
+        alert('Registration successful!');
+        window.location.href = "login.html";
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  </script>
+  </body>
+</body>
+</html>
